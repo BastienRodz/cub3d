@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:57:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/15 16:06:12 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/02/15 16:09:57 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	cub3d(char *path, int save, t_pf config)
 
 int		main(int ac, char **av)
 {
-	t_pf config;
+	t_pf *config;
 
 	if (ac < 2 || ac > 3)
 	{
