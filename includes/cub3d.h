@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/15 15:51:12 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/02/16 11:22:14 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,12 @@ typedef	struct	s_pf
 	char*	EA_path;
 
 	char*	S_path;
-	int		F_color[3];
-	int		C_color[3];
+	int		F1;
+	int		F2;
+	int		F3;
+	int		C1;
+	int		C2;
+	int		C3;
 
 	char*	map;
 }				t_pf;
