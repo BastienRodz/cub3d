@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 16:02:03 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/27 16:18:04 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/02/27 16:45:10 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,23 @@ int			search_screen_conf(t_conf *conf, char *buf, int i)
 	conf->screen_width = ft_atoi(buf + i);
 	while ((buf[i] >= '0' && buf[i] <= '9') || ft_strchr("+-", buf[i]) && buf[i] != '\0')
 		i++;
-	conf->sceen_height = ft_atoi(buf + i);
+	conf->screen_height = ft_atoi(buf + i);
 	while ((ft_strchr("\t\v\r\f ", buf[i]) || (buf[i] >= '0' && buf[i] <= '9')\
 				&& buf[i] != '\0'))
 		i++;
-	while (buf[i !=])
-
+	while (buf[i] != '\0')
+	{
+		if (ft_strchr("\t\v\r\f ", buf[i]) == 0)
+			return (-1);
+		i++;
+	}
+	if (conf->screen_height <= 0 || conf->screen_width <= 0)
+		return (-1);
+	if (conf->screen_height >= 1440)
+		conf->screen_height = 1440;
+	if (conf->screen_width >= 2560)
+		conf->screen_width = 2560;
+	return (1);
 }
 
 int			search_conf(t_conf *conf, char *buf)
