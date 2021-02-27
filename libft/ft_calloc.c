@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_map.c                                     :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: barodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/15 15:08:24 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/17 10:29:03 by barodrig         ###   ########.fr       */
+/*   Created: 2021/01/13 14:46:50 by barodrig          #+#    #+#             */
+/*   Updated: 2021/01/13 15:10:46 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "get_next_line.h"
+#include "libft.h"
 
-int	ft_check_map_error(char *path, char *save, t_pf *config)
+void	*ft_calloc(size_t count, size_t size)
 {
-	char	**line;
-	int		fd;
+	unsigned char	*str;
+	size_t			i;
 
-	fd = path;
-	open()
-	get_next_line(fd, &line);
-
+	i = 0;
+	if (!(str = malloc(count * size)))
+		return (0);
+	while (i < (count * size))
+	{
+		*(str + i) = 0;
+		i++;
+	}
+	return (str);
 }

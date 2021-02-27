@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_map.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: barodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/15 15:08:24 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/17 10:29:03 by barodrig         ###   ########.fr       */
+/*   Created: 2021/01/15 11:44:46 by barodrig          #+#    #+#             */
+/*   Updated: 2021/01/18 14:43:47 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "get_next_line.h"
+#include "libft.h"
 
-int	ft_check_map_error(char *path, char *save, t_pf *config)
+int		ft_lstsize(t_list *lst)
 {
-	char	**line;
-	int		fd;
+	int		size;
 
-	fd = path;
-	open()
-	get_next_line(fd, &line);
-
+	size = 0;
+	if (!lst)
+		return (0);
+	while (lst)
+	{
+		lst = lst->next;
+		size++;
+	}
+	return (size);
 }

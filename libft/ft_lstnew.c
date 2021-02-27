@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_map.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: barodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/15 15:08:24 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/17 10:29:03 by barodrig         ###   ########.fr       */
+/*   Created: 2021/01/15 10:58:04 by barodrig          #+#    #+#             */
+/*   Updated: 2021/01/18 08:27:57 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "get_next_line.h"
+#include "libft.h"
 
-int	ft_check_map_error(char *path, char *save, t_pf *config)
+t_list		*ft_lstnew(void *content)
 {
-	char	**line;
-	int		fd;
+	t_list *list;
 
-	fd = path;
-	open()
-	get_next_line(fd, &line);
-
+	if (!(list = malloc(sizeof(t_list))))
+		return (NULL);
+	list->content = content;
+	list->next = NULL;
+	return (list);
 }

@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_map.c                                     :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: barodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/15 15:08:24 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/17 10:29:03 by barodrig         ###   ########.fr       */
+/*   Created: 2021/01/14 16:17:14 by barodrig          #+#    #+#             */
+/*   Updated: 2021/01/18 14:22:46 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "get_next_line.h"
+#include "libft.h"
 
-int	ft_check_map_error(char *path, char *save, t_pf *config)
+void	ft_putchar_fd(char c, int fd)
 {
-	char	**line;
-	int		fd;
-
-	fd = path;
-	open()
-	get_next_line(fd, &line);
-
+	if (fd < 0)
+		return ;
+	write(fd, &c, 1);
 }

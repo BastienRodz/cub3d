@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_map.c                                     :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: barodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/15 15:08:24 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/17 10:29:03 by barodrig         ###   ########.fr       */
+/*   Created: 2021/01/13 10:50:13 by barodrig          #+#    #+#             */
+/*   Updated: 2021/01/18 14:20:00 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "get_next_line.h"
+#include "libft.h"
 
-int	ft_check_map_error(char *path, char *save, t_pf *config)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	char	**line;
-	int		fd;
+	unsigned char	*temp;
+	size_t			i;
 
-	fd = path;
-	open()
-	get_next_line(fd, &line);
-
+	temp = (unsigned char *)b;
+	i = 0;
+	while (i < len)
+	{
+		temp[i++] = (unsigned char)c;
+	}
+	return (b);
 }

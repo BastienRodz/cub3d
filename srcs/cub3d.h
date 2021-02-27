@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/16 11:22:14 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/02/27 15:39:23 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,40 @@
 # include <stdlib.h>
 # include <mlx.h>
 # include <math.h>
+# include "../get_next_line/get_next_line.h"
+# include "../libft/libft.h"
 
-typedef	struct	s_pf
+typedef struct	s_rgb
 {
-	int	 	R_y;
-	int	 	R_x;
+	int				r;
+	int				g;
+	int				b;
 
-	char*	NO_path;
-	char*	SO_path;
-	char*	WE_path;
-	char*	EA_path;
+}				t_rgb;
 
-	char*	S_path;
-	int		F1;
-	int		F2;
-	int		F3;
-	int		C1;
-	int		C2;
-	int		C3;
+typedef	struct	s_map;
+{
+	char			*line;
+	struct s_map	*next;
+}				t_map;
 
-	char*	map;
-}				t_pf;
+typedef struct	s_conf
+{
+	int				screen_width;
+	int				screen_height;
 
-int			ft_check_map_error(int fd);
+	char			*NO_path;
+	char			*SO_path;
+	char			*WE_path;
+	char			*EA_path;
+
+	char			*S_path;
+	t_rgb			floor;
+	t_rgb			ceil;
+
+	t_map			*map;
+}				t_conf;
+
+int					ft_check_map_error(int fd);
 
 #endif

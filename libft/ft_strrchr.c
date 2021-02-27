@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_map.c                                     :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: barodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/15 15:08:24 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/17 10:29:03 by barodrig         ###   ########.fr       */
+/*   Created: 2021/01/11 14:11:51 by barodrig          #+#    #+#             */
+/*   Updated: 2021/01/11 17:42:53 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "get_next_line.h"
+#include "libft.h"
 
-int	ft_check_map_error(char *path, char *save, t_pf *config)
+char	*ft_strrchr(const char *s, int c)
 {
-	char	**line;
-	int		fd;
+	size_t		size;
 
-	fd = path;
-	open()
-	get_next_line(fd, &line);
-
+	size = ft_strlen((char *)s);
+	if ((char)c == 0)
+		return ((char *)s + size);
+	while (size--)
+	{
+		if (*(s + size) == c)
+			return ((char*)(s + size));
+	}
+	return (0);
 }

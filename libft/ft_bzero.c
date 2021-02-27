@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_map.c                                     :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: barodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/15 15:08:24 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/17 10:29:03 by barodrig         ###   ########.fr       */
+/*   Created: 2021/01/13 11:04:59 by barodrig          #+#    #+#             */
+/*   Updated: 2021/01/13 11:10:26 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-#include "get_next_line.h"
+#include "libft.h"
 
-int	ft_check_map_error(char *path, char *save, t_pf *config)
+void	ft_bzero(void *s, size_t n)
 {
-	char	**line;
-	int		fd;
+	size_t			i;
+	unsigned char	*l;
 
-	fd = path;
-	open()
-	get_next_line(fd, &line);
-
+	l = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		*(l + i) = 0;
+		i++;
+	}
 }
