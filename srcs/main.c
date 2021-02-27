@@ -6,29 +6,58 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:57:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/15 16:09:57 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/02/27 16:01:04 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	cub3d(char *path, int save, t_pf config)
+int		check_arguments(int ac, char **av)
 {
-	printf("YOU REACHED CUB3D FUNCTION ! CONGRATS !\n");
+	int ret;
+
+	ret = 0;
+	if (ac > 3)
+		ret = -1;
+	if (ac < 2)
+		ret = -1;
+	if (ac == 3)
+		if (ft_strncmp(av[2], "--save", 6) != 0)
+			ret = -1;
+	if (ac == 2)
+		if (ft_strncmp(av[1] + ft_strlen(av[1]) - 4, ".cub", 4) != 0)
+			ret = -1;
+	if (ret = -1)
+	{
+		write(1, "ARGS ERROR", 10);
+		return (-1);
+	}
+	return (1)
 }
 
 int		main(int ac, char **av)
 {
-	t_pf *config;
+	int		fd;
+	int		ret;
+	char	*buf;
+	t_conf	conf;
 
-	if (ac < 2 || ac > 3)
-	{
-		write(1, "Error argc\n", 11);
+	ft_bzero(&conf, sizeof(conf);
+	ret = 0;
+	buf = NULL;
+	if (check_arguments(ac, av) != 1)
 		return (0);
+	fd = open(av[1] , O_RDWR);
+	while ((ret = get_next_line(fd, &buf)) > 0)
+	{
+		if (search_conf(&conf, buf) != 1)
+			return (-1);
 	}
-	else if(ac == 2 && !ft_check_map_error(av[1], NULL, config))
-		cub3d(av[1], 0, config);
-	else if (ac == 3 && !ft_check_map_error(av[1], av[2], config))
-		cub3d(av[1], 1, config);
-	return (1);
+	if (buf)
+		free(buf);
+	if (ret == -1)
+		return (-1);
+	if (game_launch(conf, ac) != 1)
+		return (-1);
+	return (0);
 }
