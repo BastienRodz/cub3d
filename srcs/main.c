@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:57:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/28 13:18:50 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/02/28 15:26:31 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int		main(int ac, char **av)
 	{
 		if (search_conf(&conf, buf) != 1)
 			return (-1);
+		free(buf);
 	}
 	if (buf)
 		free(buf);

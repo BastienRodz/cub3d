@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: barodrig <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 08:58:21 by barodrig          #+#    #+#             */
-/*   Updated: 2021/01/18 10:41:55 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/02/28 15:07:41 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int		ft_strlen(char *str)
 {
-	int size;
+	int i;
 
-	size = 0;
-	while (*str != '\0')
-	{
-		size++;
-		str++;
-	}
-	return (size);
+	if (!str)
+		return (0);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+
+	return (i);
 }

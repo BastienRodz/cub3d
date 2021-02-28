@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 16:02:03 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/28 14:50:22 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/02/28 15:20:55 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,10 @@ int			search_screen_conf(t_conf *conf, char *buf, int i)
 		i++;
 	}
 	if (conf->screen_height <= 0 || conf->screen_width <= 0)
+	{
+		write(1, "ERROR SEARCH SCREEN CONF \n", 26);
 		return (-1);
+	}
 	if (conf->screen_height >= 1440)
 		conf->screen_height = 1440;
 	if (conf->screen_width >= 2560)
@@ -97,19 +100,28 @@ int			search_conf(t_conf *conf, char *buf)
 		return (1);
 	if (buf[0] == 'R')
 		if (search_screen_conf(conf, buf, 0) != 1)
+		{
+			write(1, "ERROR SEARCH SCREEN CONF \n", 26);
 			return (-1);
+		}
 	if (ft_strchr("NSWES", buf[0]))
 		if (search_textures_path(conf, buf) != 1)
+		{
+			write(1, "ERROR SEARCH TEXTURES PATH\n", 27);
 			return (-1);
+		}
 	if (ft_strchr("FC", buf[0]))
 		if (search_FC_textures(conf, buf) != 1)
+		{
+			write(1, "ERROR FC textures \n", 19);
 			return (-1);
+		}
 	if (buf[0] >= '0' && buf[0] <= '9')
 		if (stock_map(conf, buf) != 1)
-			{
-				write(1, "MAP ERROR\n", 10);
-				return (-1);
-			}
+		{
+			write(1, "MAP ERROR\n", 10);
+			return (-1);
+		}
 	if ((buf[0] < '0' || buf[0] > '9') && !ft_strchr("RNSWESFC", buf[0]))
 	{
 		write(1, "ERROR WRONG ARG IN .CUB FILE\n", 29);
