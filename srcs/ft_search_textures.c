@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 13:32:51 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/28 17:03:33 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/02/28 17:13:30 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,19 @@ int	search_textures_path_2(char *direction, int i, char *buf, t_conf *conf)
 {
 	if (!ft_strncmp("WE", direction, 2))
 	{
-		printf("PROUT 3\n");
-		if (ft_strlen(conf->NO_path))
+		if (ft_strlen(conf->WE_path))
 			return (-1);
 		conf->WE_path = ft_strsub(buf, i, ft_strlen(buf) - i);
 	}
 	if (!ft_strncmp("EA", direction, 2))
 	{
-		printf("PROUT 4\n");
-		if (ft_strlen(conf->SO_path))
+		if (ft_strlen(conf->EA_path))
 			return (-1);
 		conf->EA_path = ft_strsub(buf, i, ft_strlen(buf) - i);
 	}
 	if (!ft_strncmp("S ", direction, 2))
 	{
-		printf("PROUT 5\n");
-		if (ft_strlen(conf->NO_path))
+		if (ft_strlen(conf->S_path))
 			return (-1);
 		conf->S_path = ft_strsub(buf, i, ft_strlen(buf) - i);
 	}
@@ -51,14 +48,12 @@ int	search_textures_path(t_conf *conf, char *buf)
 		i++;
 	if (!ft_strncmp("NO", direction, 2))
 	{
-		printf("PROUT 1\n");
 		if (ft_strlen(conf->NO_path))
 			return (-1);
 		conf->NO_path = ft_strsub(buf, i, ft_strlen(buf) - i);
 	}
 	if (!ft_strncmp("SO", direction, 2))
 	{
-		printf("PROUT 2\n");
 		if (ft_strlen(conf->SO_path))
 			return (-1);
 		conf->SO_path = ft_strsub(buf, i, ft_strlen(buf) - i);

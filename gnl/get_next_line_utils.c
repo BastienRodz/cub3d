@@ -6,23 +6,11 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 13:05:54 by barodrig          #+#    #+#             */
-/*   Updated: 2021/01/21 14:25:54 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/02/28 17:09:53 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-size_t	ft_strlen(const char *str)
-{
-	int			i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
