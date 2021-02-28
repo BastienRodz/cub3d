@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:57:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/28 15:26:31 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/02/28 18:56:19 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 int		game_launch(t_conf conf, int ac)
 {
-	return (1);
-/*	if (check_map(conf.map) != 1)
+	if (map_checker(conf.map, 0, 0) != 1)
 		{
 			write(1, "CHECK_MAP ERROR\n", 16);
 			return (-1);
 		}
-	 TO COMPLETE ....
-	return (1);*/
+	return (1);
 }
 
 int		check_arguments(int ac, char **av)

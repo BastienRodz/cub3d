@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/28 17:08:24 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/02/28 18:53:54 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,13 @@ typedef struct	s_conf
 	t_map			*map;
 }				t_conf;
 
-int			search_conf(t_conf *conf, char *buf);
-int			search_textures_path(t_conf *conf, char *buf);
+int				search_conf(t_conf *conf, char *buf);
+int				search_textures_path(t_conf *conf, char *buf);
 
-t_map		*ft_lstnewmap(void *content);
-void		ft_lstadd_backmap(t_map **alst, t_map *new);
-char		*remove_space(char *buf, char c);
+t_map			*ft_lstnewmap(void *content);
+void			ft_lstadd_backmap(t_map **alst, t_map *new);
+char			*remove_space(char *buf, char c);
+
+int				map_checker(t_map *map, int pos, int i);
 
 #endif
