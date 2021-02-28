@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 16:02:03 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/28 15:20:55 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/02/28 15:47:03 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int			search_conf(t_conf *conf, char *buf)
 			return (-1);
 		}
 	if (ft_strchr("NSWES", buf[0]))
-		if (search_textures_path(conf, buf) != 1)
+		if (check_path(conf, buf) != 1)
 		{
 			write(1, "ERROR SEARCH TEXTURES PATH\n", 27);
 			return (-1);
