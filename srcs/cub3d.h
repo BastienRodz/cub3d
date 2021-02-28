@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/27 15:39:23 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/02/28 14:49:53 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <mlx.h>
 # include <math.h>
+# include <fcntl.h>
 # include "../get_next_line/get_next_line.h"
 # include "../libft/libft.h"
 
@@ -29,7 +30,7 @@ typedef struct	s_rgb
 
 }				t_rgb;
 
-typedef	struct	s_map;
+typedef struct	s_map
 {
 	char			*line;
 	struct s_map	*next;
@@ -52,6 +53,11 @@ typedef struct	s_conf
 	t_map			*map;
 }				t_conf;
 
-int					ft_check_map_error(int fd);
+int			search_conf(t_conf *conf, char *buf);
+int			search_textures_path(t_conf *conf, char *buf);
+
+t_map		*ft_lstnewmap(void *content);
+void		ft_lstadd_backmap(t_map **alst, t_map *new);
+char		*remove_space(char *buf, char c);
 
 #endif
