@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 18:17:44 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/28 18:54:20 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/01 15:31:13 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,19 @@ int		check_map_with_spaces(int i, t_map *map_tmp, t_map *map_before)
 		i = 0;
 		while (map_tmp->line[i])
 		{
-			if (map_tmp->line[i] != ' ' && map_tmp->line[i] != '1' && i >= ft_strlen(map_before->line))
-				return (-1);
+			if (map_before)
+				if (map_tmp->line[i] != ' ' && map_tmp->line[i] != '1' && i >= ft_strlen(map_before->line))
+					return (-1);
 			if (map_after)
 				if (map_tmp->line[i] != ' ' && map_tmp->line[i] != '1' && i >= ft_strlen(map_after->line))
 					return (-1);
 			i++;
 		}
+		printf("%i\n", i);
+		printf("%s\n", map_tmp->line);
 		map_before = map_tmp;
-		map_tmp = map_tmp->next;
-		map_after = map_tmp->next;
+		map_tmp = map_after;
+		map_after = map_after->next;
 	}
 	return (1);
 }
@@ -76,12 +79,13 @@ int		map_checker(t_map *map, int pos, int i)
 		i = 0;
 		while (map_tmp->line[i])
 		{
-			if (ft_strchr("012NSWE", map_tmp->line[i]) == 0)
+			if (!ft_strchr("012NSWE \t", map_tmp->line[i]))
 			{
+				printf("%c\n", map_tmp->line[i]);
 				printf("WRONG CHAR IN MAP\n");
 				return (-1);
 			}
-			if (ft_strchr("NSWE", map_tmp->line[i]) != 0)
+			if (ft_strchr("NSWE", map_tmp->line[i]))
 				pos++;
 			if (pos > 1)
 			{

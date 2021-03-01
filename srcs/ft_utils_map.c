@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:46:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/28 13:29:02 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/01 15:19:48 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		count_space(char *buf, char c)
 
 	i = 0;
 	count = 0;
-	while (buf[i])
+	while (buf[i] != '\0')
 	{
 		if (buf[i] == c)
 			count++;
@@ -33,17 +33,17 @@ char	*remove_space(char *buf, char c)
 	int		i;
 	int		j;
 	char	*new;
-	int		len_before;
-	int		len_after;
+	int		newlen;
+	int		oldlen;
 
 	i = 0;
 	j = 0;
-	len_before = ft_strlen(buf);
-	len_after = len_before - (count_space(buf, c));
-	new = (char *)malloc(sizeof(char) * (len_after + 1));
+	oldlen = ft_strlen(buf);
+	newlen = oldlen - (count_space(buf, c));
+	new = (char *)malloc(sizeof(char) * (newlen + 1));
 	if (!new)
 		return (NULL);
-	while (i < len_before)
+	while (i < oldlen)
 	{
 		if (buf[i] != c)
 		{

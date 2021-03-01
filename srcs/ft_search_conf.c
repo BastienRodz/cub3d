@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 16:02:03 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/28 17:10:58 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/01 17:04:33 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,21 @@ int			stock_map(t_conf *conf, char *buf)
 	return (1);
 }
 
+int			ft_check_first_line(char *str, char *buf)
+{
+	int i;
+
+	i = 0;
+	while (buf[i])
+	{
+		if (ft_strchr(str, buf[i]))
+			i++;
+		else
+			return (0);
+	}
+	return (1);
+}
+
 int			search_conf(t_conf *conf, char *buf)
 {
 	if (buf[0] == '\n' || buf[0] == '\0')
@@ -104,7 +119,7 @@ int			search_conf(t_conf *conf, char *buf)
 			write(1, "ERROR SEARCH SCREEN CONF \n", 26);
 			return (-1);
 		}
-	if (ft_strchr("NSWES", buf[0]))
+	if (ft_strchr("NSWE", buf[0]))
 		if (search_textures_path(conf, buf) != 1)
 		{
 			write(1, "ERROR SEARCH TEXTURES PATH\n", 27);
@@ -116,13 +131,13 @@ int			search_conf(t_conf *conf, char *buf)
 			write(1, "ERROR FC textures \n", 19);
 			return (-1);
 		}
-	if (buf[0] >= '0' && buf[0] <= '9')
+	if (ft_strchr(" \t1", buf[0]) && ft_check_first_line(" \t1", buf))
 		if (stock_map(conf, buf) != 1)
 		{
 			write(1, "MAP ERROR\n", 10);
 			return (-1);
 		}
-	if ((buf[0] < '0' || buf[0] > '9') && !ft_strchr("RNSWESFC", buf[0]))
+	if ((buf[0] < '0' || buf[0] > '9') && !ft_strchr("RNSWESFC \t", buf[0]))
 	{
 		write(1, "ERROR WRONG ARG IN .CUB FILE\n", 29);
 		return (-1);
