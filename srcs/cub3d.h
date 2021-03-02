@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/01 15:31:42 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/01 22:40:37 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,7 @@ void			ft_lstadd_backmap(t_map **alst, t_map *new);
 char			*remove_space(char *buf, char c);
 
 int				map_checker(t_map *map, int pos, int i);
+int				is_map_1st_line(char *line);
+int				stock_map(int fd, t_conf *conf, char *buf);
 
 #endif

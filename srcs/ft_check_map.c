@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 18:17:44 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/01 15:31:13 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/01 22:53:12 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ int		check_map_with_spaces(int i, t_map *map_tmp, t_map *map_before)
 		i = 0;
 		while (map_tmp->line[i])
 		{
-			if (map_before)
-				if (map_tmp->line[i] != ' ' && map_tmp->line[i] != '1' && i >= ft_strlen(map_before->line))
+			if (map_tmp->line[i] != ' ' && map_tmp->line[i] != '1' && map_tmp->line[i] != '\t' && i >= ft_strlen(map_before->line))
 					return (-1);
 			if (map_after)
-				if (map_tmp->line[i] != ' ' && map_tmp->line[i] != '1' && i >= ft_strlen(map_after->line))
+				if (map_tmp->line[i] != ' ' && map_tmp->line[i] != '1' && map_tmp->line[i] != '\t' && i >= ft_strlen(map_after->line))
 					return (-1);
 			i++;
 		}

@@ -6,11 +6,27 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 12:46:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/01 15:19:48 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/01 22:25:48 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int		is_map_1st_line(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] != ' ' && line[i] != '1' && line[i] != '	')
+			return (0);
+		i++;
+	}
+	if (ft_strchr(line, '1'))
+		return (1);
+	return (0);
+}
 
 int		count_space(char *buf, char c)
 {

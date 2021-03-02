@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:57:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/01 17:04:25 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/01 22:45:30 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,17 @@ int		main(int ac, char **av)
 	if (check_arguments(ac, av) != 1)
 		return (0);
 	fd = open(av[1], O_RDWR);
-	while ((ret = get_next_line(fd, &buf)) > 0)
+	while ((ret = get_next_line(fd, &buf)) > 0 && !is_map_1st_line(buf))
 	{
 		if (search_conf(&conf, buf) != 1)
 			return (-1);
 		free(buf);
 	}
-	if (buf)
-		free(buf);
+	if (stock_map(fd, &conf, buf) != 1)
+	{
+		printf("MAP ERROR\n");
+		return (-1);
+	}
 	if (ret == -1)
 		return (-1);
 	if (game_launch(conf, ac) != 1)

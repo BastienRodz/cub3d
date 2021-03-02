@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 16:02:03 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/01 17:04:33 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/01 23:20:02 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,27 +84,18 @@ int			search_screen_conf(t_conf *conf, char *buf, int i)
 	return (1);
 }
 
-int			stock_map(t_conf *conf, char *buf)
+int			stock_map(int fd, t_conf *conf, char *buf)
 {
 	t_map	*map_tmp;
+	int		ret;
 
-	if (!(map_tmp = ft_lstnewmap(remove_space(buf, ' '))))
-		return (-1);
-	ft_lstadd_backmap(&(conf->map), map_tmp);
-	return (1);
-}
-
-int			ft_check_first_line(char *str, char *buf)
-{
-	int i;
-
-	i = 0;
-	while (buf[i])
+	while ((ret = get_next_line(fd, &buf)) > 0)
 	{
-		if (ft_strchr(str, buf[i]))
-			i++;
-		else
-			return (0);
+		if (!(map_tmp = ft_lstnewmap(remove_space(buf, ' '))))
+			return (-1);
+		printf("%s\n", buf);
+		ft_lstadd_backmap(&(conf->map), map_tmp);
+		free(buf);
 	}
 	return (1);
 }
@@ -129,12 +120,6 @@ int			search_conf(t_conf *conf, char *buf)
 		if (search_FC_textures(conf, buf) != 1)
 		{
 			write(1, "ERROR FC textures \n", 19);
-			return (-1);
-		}
-	if (ft_strchr(" \t1", buf[0]) && ft_check_first_line(" \t1", buf))
-		if (stock_map(conf, buf) != 1)
-		{
-			write(1, "MAP ERROR\n", 10);
 			return (-1);
 		}
 	if ((buf[0] < '0' || buf[0] > '9') && !ft_strchr("RNSWESFC \t", buf[0]))
