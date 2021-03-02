@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 20:00:33 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/02 20:38:21 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/02 23:28:33 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,5 @@ int		map_gnl(int fd, char *line, t_conf *conf)
 		return (-1);
 	}
 	get_map(line, conf);
+	return (1);
 }

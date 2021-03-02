@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:57:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/02 20:24:56 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/02 23:21:53 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		ft_check_map(int fd, t_conf *conf)
 		return (-1);
 	if (conf->p.pos_count != 1)
 		return (-1);
-	tmp_print_check(conf);
+	//tmp_print_check(conf);
 	return (1);
 }
 

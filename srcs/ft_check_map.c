@@ -6,13 +6,13 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 18:17:44 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/02 20:39:43 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/02 23:27:59 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	is_in_set(char c, char *set)
+int		is_in_set(char c, char *set)
 {
 	int		i;
 
@@ -27,6 +27,8 @@ int		is_map_1st_line(char *line)
 {
 	int	i;
 
+	if (!line)
+		return (0);
 	i = 0;
 	while (line[i])
 	{
@@ -78,7 +80,7 @@ int		ft_check_walls(t_conf *conf)
 	return (1);
 }
 
-void	tmp_print_check(t_conf *conf)
+/*void	tmp_print_check(t_conf *conf)
 {
 	int	i;
 
@@ -101,3 +103,4 @@ void	tmp_print_check(t_conf *conf)
 	printf("x = %d\n", conf->p.x);
 	printf("y = %d\n", conf->p.y);
 }
+*/
