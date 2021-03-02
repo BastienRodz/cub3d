@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 16:02:03 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/01 23:20:02 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/02 20:00:30 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,22 +81,6 @@ int			search_screen_conf(t_conf *conf, char *buf, int i)
 		conf->screen_height = 1440;
 	if (conf->screen_width >= 2560)
 		conf->screen_width = 2560;
-	return (1);
-}
-
-int			stock_map(int fd, t_conf *conf, char *buf)
-{
-	t_map	*map_tmp;
-	int		ret;
-
-	while ((ret = get_next_line(fd, &buf)) > 0)
-	{
-		if (!(map_tmp = ft_lstnewmap(remove_space(buf, ' '))))
-			return (-1);
-		printf("%s\n", buf);
-		ft_lstadd_backmap(&(conf->map), map_tmp);
-		free(buf);
-	}
 	return (1);
 }
 

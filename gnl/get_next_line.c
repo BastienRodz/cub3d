@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 15:53:09 by barodrig          #+#    #+#             */
-/*   Updated: 2021/01/22 11:44:48 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/02 20:30:00 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		get_next_line(int fd, char **line)
 			return (-1);
 		}
 		buf[ret] = '\0';
-		tmp = ft_strjoin(tmp, buf);
+		tmp = ft_strjoin2(tmp, buf);
 	}
 	free(buf);
 	*line = ft_get_line(tmp);

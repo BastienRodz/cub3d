@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 16:59:41 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/28 15:22:25 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/02 20:29:00 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char			*ft_strdup(const char *s1);
 char			*ft_strsub(char *str, int start, int len);
 
 char			*ft_substr(char const *s, unsigned int start, size_t len);
-char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strjoin(char *s1, char *s2, int n);
 char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *src, char charset);
 char			*ft_itoa(int n);

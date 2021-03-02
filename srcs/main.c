@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:57:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/01 22:45:30 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/02 20:24:56 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 int		game_launch(t_conf conf, int ac)
 {
-	if (map_checker(conf.map, 0, 0) != 1)
-		{
-			write(1, "CHECK_MAP ERROR\n", 16);
-			return (-1);
-		}
 	return (1);
 }
 
@@ -45,6 +40,20 @@ int		check_arguments(int ac, char **av)
 	return (1);
 }
 
+int		ft_check_map(int fd, t_conf *conf)
+{
+	char	*line;
+
+	map_gnl(fd, line, conf);
+	conf->m.map = ft_split(conf->m.line, '*');
+	if (!ft_check_walls(conf))
+		return (-1);
+	if (conf->p.pos_count != 1)
+		return (-1);
+	tmp_print_check(conf);
+	return (1);
+}
+
 int		main(int ac, char **av)
 {
 	int		fd;
@@ -64,11 +73,8 @@ int		main(int ac, char **av)
 			return (-1);
 		free(buf);
 	}
-	if (stock_map(fd, &conf, buf) != 1)
-	{
-		printf("MAP ERROR\n");
+	if (!ft_check_map(fd, &conf))
 		return (-1);
-	}
 	if (ret == -1)
 		return (-1);
 	if (game_launch(conf, ac) != 1)

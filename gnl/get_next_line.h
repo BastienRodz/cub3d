@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 12:20:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/02/28 17:10:20 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/02 20:29:44 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # endif
 
 void	*ft_memmove(void *dst, const void *src, size_t len);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin2(char const *s1, char const *s2);
 int		ft_return(char *str);
 int		get_next_line(int fd, char **line);
 
