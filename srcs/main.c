@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:57:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/02 23:21:53 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/03 15:25:08 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,8 @@ int		check_arguments(int ac, char **av)
 	return (1);
 }
 
-int		ft_check_map(int fd, t_conf *conf)
+int		ft_check_map(int fd, t_conf *conf, char *line)
 {
-	char	*line;
 
 	map_gnl(fd, line, conf);
 	conf->m.map = ft_split(conf->m.line, '*');
@@ -50,7 +49,7 @@ int		ft_check_map(int fd, t_conf *conf)
 		return (-1);
 	if (conf->p.pos_count != 1)
 		return (-1);
-	//tmp_print_check(conf);
+	tmp_print_check(conf);
 	return (1);
 }
 
@@ -69,11 +68,12 @@ int		main(int ac, char **av)
 	fd = open(av[1], O_RDWR);
 	while ((ret = get_next_line(fd, &buf)) > 0 && !is_map_1st_line(buf))
 	{
+		printf("%s\n", buf);
 		if (search_conf(&conf, buf) != 1)
 			return (-1);
 		free(buf);
 	}
-	if (!ft_check_map(fd, &conf))
+	if (!ft_check_map(fd, &conf, buf))
 		return (-1);
 	if (ret == -1)
 		return (-1);

@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/02 20:38:12 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/03 13:41:56 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,6 @@ void			ft_get_player(t_conf *conf, int x, int y);
 */
 void	tmp_print_check(t_conf *conf);
 int		ft_check_walls(t_conf *conf);
-int		check_UDRL(t_conf *conf, int y, int x);
+int		check_udrl(t_conf *conf, int y, int x);
 
 #endif

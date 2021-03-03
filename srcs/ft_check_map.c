@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 18:17:44 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/02 23:27:59 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/03 15:25:21 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,10 @@ int		is_map_1st_line(char *line)
 {
 	int	i;
 
-	if (!line)
-		return (0);
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] != ' ' && line[i] != '1' && line[i] != '	')
+		if (line[i] != ' ' && line[i] != '1')
 			return (0);
 		i++;
 	}
@@ -41,7 +39,7 @@ int		is_map_1st_line(char *line)
 	return (0);
 }
 
-int		check_UDRL(t_conf *conf, int y, int x)
+int		check_udrl(t_conf *conf, int y, int x)
 {
 	if (!is_in_set(conf->m.map[y - 1][x], "120NSWE"))
 		return (0);
@@ -71,7 +69,7 @@ int		ft_check_walls(t_conf *conf)
 					conf->m.map[y][x] == 'E' || conf->m.map[y][x] == 'W')
 				ft_get_player(conf, x, y);
 			if (conf->m.map[y][x] == '0')
-				if (!check_UDRL(conf, y, x))
+				if (!check_udrl(conf, y, x))
 					return (0);
 			x++;
 		}
@@ -80,7 +78,7 @@ int		ft_check_walls(t_conf *conf)
 	return (1);
 }
 
-/*void	tmp_print_check(t_conf *conf)
+void	tmp_print_check(t_conf *conf)
 {
 	int	i;
 
@@ -103,4 +101,4 @@ int		ft_check_walls(t_conf *conf)
 	printf("x = %d\n", conf->p.x);
 	printf("y = %d\n", conf->p.y);
 }
-*/
+

@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 20:00:33 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/02 23:28:33 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/03 15:23:07 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		map_gnl(int fd, char *line, t_conf *conf)
 	}
 	if (*line && !is_map_1st_line(line))
 	{
-		printf("LAST LINE IN MAP IS NOT CLOSED");
+		printf("LAST LINE IN MAP IS NOT CLOSED\n");
 		return (-1);
 	}
 	get_map(line, conf);

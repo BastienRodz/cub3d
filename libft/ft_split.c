@@ -3,88 +3,80 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: barodrig <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 11:39:06 by barodrig          #+#    #+#             */
-/*   Updated: 2021/01/14 14:25:11 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/03 14:02:55 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_count_words(char const *src, char charset)
+static size_t	ft_wordlen(char const *s, char c)
 {
-	int words;
-	int i;
-
-	i = 0;
-	words = 0;
-	while (src[i])
-	{
-		if (src[i] != charset && (src[i + 1] == charset || src[i + 1] == '\0'))
-			words++;
-		i++;
-	}
-	return (words);
-}
-
-int		ft_words_len(const char *src, char charset)
-{
-	int len;
+	size_t	len;
 
 	len = 0;
-	while (src[len] != charset && src[len] != '\0')
+	while (s[len] != c && s[len] != '\0')
 		len++;
 	return (len);
 }
 
-void	*ft_leak(char **split, int words)
+static int		ft_wordcount(char const *s, char c)
 {
-	int i;
+	int		nb_word;
+	int		i;
 
 	i = 0;
-	while (i < words)
+	nb_word = 0;
+	while (s[i])
 	{
-		free(split[i]);
-		i++;
+		while (s[i] == c)
+			i++;
+		if (s[i] != c && s[i])
+			nb_word++;
+		while (s[i] != c && s[i])
+			i++;
 	}
-	free(split);
+	return (nb_word);
+}
+
+static char		**ft_free(char **tab)
+{
+	int		i;
+
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
 	return (NULL);
 }
 
-char	**ft_write_words(char **split, char const *src, char charset, int words)
+char			**ft_split(char const *s, char c)
 {
-	int	i;
-	int j;
-	int len;
+	char	**tab;
+	int		nb_word;
+	size_t	wordlen;
+	int		j;
 
-	i = -1;
-	while (++i < words)
+	if (!s)
+		return (0);
+	nb_word = ft_wordcount(s, c);
+	tab = (char **)malloc(sizeof(char *) * (nb_word + 1));
+	if (tab == NULL)
+		return (0);
+	j = 0;
+	while (nb_word--)
 	{
-		while (*src == charset)
-			src++;
-		len = ft_words_len(src, charset);
-		if (!(split[i] = (char *)malloc(sizeof(char) * (len + 1))))
-			return (ft_leak(split, i));
-		j = 0;
-		while (j < len)
-			split[i][j++] = *src++;
-		split[i][j] = '\0';
+		while (*s == c && *s)
+			s++;
+		wordlen = ft_wordlen(s, c);
+		if (!(tab[j] = (char*)malloc(sizeof(char) * wordlen + 1)))
+			return (ft_free(tab));
+		ft_strlcpy(tab[j], s, wordlen + 1);
+		j++;
+		s += wordlen;
 	}
-	split[i] = NULL;
-	return (split);
-}
-
-char	**ft_split(char const *src, char charset)
-{
-	char	**split;
-	int		words;
-
-	if (!src)
-		return (NULL);
-	words = ft_count_words(src, charset);
-	if (!(split = (char **)malloc(sizeof(char *) * words + 1)))
-		return (NULL);
-	split = ft_write_words(split, src, charset, words);
-	return (split);
+	tab[j] = NULL;
+	return (tab);
 }
