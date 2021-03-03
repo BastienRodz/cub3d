@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:57:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/03 15:25:08 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/03 15:32:17 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int		main(int ac, char **av)
 	fd = open(av[1], O_RDWR);
 	while ((ret = get_next_line(fd, &buf)) > 0 && !is_map_1st_line(buf))
 	{
-		printf("%s\n", buf);
 		if (search_conf(&conf, buf) != 1)
 			return (-1);
 		free(buf);
