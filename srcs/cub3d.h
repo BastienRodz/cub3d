@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/03 13:41:56 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/04 11:04:18 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <fcntl.h>
 # include "../gnl/get_next_line.h"
 # include "../libft/libft.h"
+# include "../mlx/mlx.h"
+
 
 typedef struct	s_rgb
 {
