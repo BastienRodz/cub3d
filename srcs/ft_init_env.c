@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 16:30:25 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/04 16:48:10 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/04 17:04:54 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void		get_conf(t_env *env, t_conf conf, int y, int x)
 	env->map_height = y - 1;
 }
 
-t_env		init_env(t_conf conf)
+t_env		init_env(t_conf *conf)
 {
 	t_env	env;
 	int		i;

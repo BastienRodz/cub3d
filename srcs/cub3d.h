@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/04 16:47:16 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/04 17:05:40 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,6 @@ typedef struct				s_save
 	unsigned char			*img_header;
 	int						fd;
 }							t_save;
-
-typedef	struct				s_img
-{
-	void					*img_ptr;
-	int						*img_data;
-	int						bpp;
-	int						size_line;
-	int						endian;
-	int						width;
-	int						height;
-}							t_img;
 
 typedef	struct				s_tex
 {
@@ -85,6 +74,13 @@ typedef struct				s_sprite_data
 	int						sp_x;
 	int						sp_y;
 }							t_sprite_data;
+
+typedef	struct				s_sprite
+{
+	double					pos_x;
+	double					pos_y;
+	t_tex					*tex;
+}							t_sprite;
 
 typedef struct				s_move
 {
@@ -143,35 +139,6 @@ typedef struct				s_ray
 	int						door;
 }							t_ray;
 
-typedef	struct				s_env
-{
-	void					*mlx_ptr;
-	void					*win_ptr;
-	t_conf					conf;
-	char					**map;
-	int						map_height;
-	int						map_width;
-	double					player_x;
-	double					player_y;
-	char					orientation;
-	int						height;
-	int						width;
-	unsigned int			floor;
-	unsigned int			ceil;
-	int						error;
-	t_move					move;
-	t_ray					ray;
-	t_img					*img;
-	int						save_flag;
-	int						sprite_width;
-	unsigned int			color;
-	t_sprite				*sprite_tex;
-	int						sprite_count;
-	t_sprite				*sprite_tab;
-	t_sprite_data			sprite;
-}							t_env;
-
-
 typedef struct	s_rgb
 {
 	int				r;
@@ -214,6 +181,35 @@ typedef struct	s_conf
 	t_player		p;
 }				t_conf;
 
+typedef	struct				s_env
+{
+	void					*mlx_ptr;
+	void					*win_ptr;
+	t_conf					conf;
+	char					**map;
+	int						map_height;
+	int						map_width;
+	double					player_x;
+	double					player_y;
+	char					orientation;
+	int						height;
+	int						width;
+	unsigned int			floor;
+	unsigned int			ceil;
+	int						error;
+	t_move					move;
+	t_ray					ray;
+	t_img					*img;
+	int						save_flag;
+	int						sprite_width;
+	unsigned int			color;
+	t_sprite				*sprite_tex;
+	int						sprite_count;
+	t_sprite				*sprite_tab;
+	t_sprite_data			sprite;
+}							t_env;
+
+
 /*
 **	GET CONF & MAP IN STRUCT
 */
@@ -230,5 +226,14 @@ void			ft_get_player(t_conf *conf, int x, int y);
 void	tmp_print_check(t_conf *conf);
 int		ft_check_walls(t_conf *conf);
 int		check_udrl(t_conf *conf, int y, int x);
+
+/*
+**	TEST
+*/
+int		init_tex(t_env *env);
+t_env	init_env(t_conf *conf);
+int		init_sprite(t_env *env);
+void	ft_order_sprite(t_env *env);
+int		add_sprite_two(t_env *env, int i);
 
 #endif
