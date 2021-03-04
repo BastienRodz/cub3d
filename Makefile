@@ -6,7 +6,7 @@
 #    By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/28 13:04:41 by barodrig          #+#    #+#              #
-#    Updated: 2021/03/02 20:25:42 by barodrig         ###   ########.fr        #
+#    Updated: 2021/03/04 10:57:22 by barodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,31 +20,39 @@ SRCS = 	./srcs/main.c \
 		./gnl/get_next_line.c \
 		./gnl/get_next_line_utils.c \
 
-CC = gcc
+CC = clang
 
 FLAGS = -Wall -Wextra -Werror -g
 
 OBJS = $(SRCS:.c=.o)
 
-all: libft $(NAME)
+all: libft mlx $(NAME)
+
+mlx :
+		@make -C mlx/
 
 libft:
-	make -C libft/
+		@make -C libft/
 
 $(%.o): $(%.c)
-	$(CC) -o $@ -c $^
+		@$(CC) -Imlx -o $@ -c $^
 
 $(NAME): $(OBJS)
-	$(CC) -o $@ $^ -Llibft -lft
+		@$(CC) $(FLAGS) -o $@ $^ -lmlx -framework OpenGL -framework AppKit -lm -Llibft -lft
 
 clean:
-	@rm -f $(OBJS)
-	make -C libft/ clean
+		@rm -f $(OBJS)
+		@make -C libft/ clean
+		@make -C mlx/ clean
 
 fclean: clean
-	@rm -f $(NAME)
-	make -C libft/ fclean
+		@rm -f $(NAME)
+		@make -C libft/ fclean
+		@make -C mlx/ clean
 
 re: fclean all
 
-.PHONY: all clean fclean re libft
+norm:
+	norminette $(SRCS) ./cub3d.h
+
+.PHONY: all clean fclean re libft mlx
