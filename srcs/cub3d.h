@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/04 11:04:18 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/04 14:42:05 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,35 @@
 # include "../gnl/get_next_line.h"
 # include "../libft/libft.h"
 # include "../mlx/mlx.h"
+
+
+typedef	struct				s_env
+{
+	void					*mlx_ptr;
+	void					*win_ptr;
+	t_arg					arg;
+	char					**map;
+	int						map_height;
+	int						map_width;
+	double					player_x;
+	double					player_y;
+	char					orientation;
+	int						height;
+	int						width;
+	unsigned int			floor;
+	unsigned int			ceil;
+	int						error;
+	t_move					move;
+	t_ray					ray;
+	t_img					*img;
+	int						save_flag;
+	int						sprite_width;
+	unsigned int			color;
+	t_sprite				*sprite_tex;
+	int						sprite_count;
+	t_sprite				*sprite_tab;
+	t_sprite_data			sprite;	
+}							t_env;
 
 
 typedef struct	s_rgb

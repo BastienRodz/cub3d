@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 18:17:44 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/03 15:25:21 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/04 14:38:36 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,29 +76,5 @@ int		ft_check_walls(t_conf *conf)
 		y++;
 	}
 	return (1);
-}
-
-void	tmp_print_check(t_conf *conf)
-{
-	int	i;
-
-	i = 0;
-	printf("[MAP CHECK]\n\n");
-	while (conf->m.map[i])
-		printf("%s\n", conf->m.map[i++]);
-	printf("\n");
-	printf("[CONFIG CHECK]\n\n");
-	printf("RESOLUTION = %d %d\n", conf->screen_width, conf->screen_height);
-	printf("NO TEXTURE = %s\n", conf->NO_path);
-	printf("SO TEXTURE = %s\n", conf->SO_path);
-	printf("WE TEXTURE = %s\n", conf->WE_path);
-	printf("EA TEXTURE = %s\n", conf->EA_path);
-	printf("S TEXTURE = %s\n\n", conf->S_path);
-	//printf("F COLOR = %d\n\n", conf->floor);
-	//printf("C COLOR = %d\n\n", conf->ceil);
-	printf("PLAYER CHECK\n\n");
-	printf("POSITION = %c\n", conf->p.orient);
-	printf("x = %d\n", conf->p.x);
-	printf("y = %d\n", conf->p.y);
 }
 

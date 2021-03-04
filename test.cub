@@ -4,8 +4,8 @@ SO ./textures/SO.xpm
 WE ./textures/WE.xpm
 EA ./textures/EA.xpm
 S ./items/treasure.xpm
-F 182,182,182
-C 182,182,182
+F 182,183,184
+C 182,183,184
 
         1111111111111111111111111
         1000000000110000000000001
