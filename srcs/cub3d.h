@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/04 14:42:05 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/04 16:47:16 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,133 @@
 # include "../gnl/get_next_line.h"
 # include "../libft/libft.h"
 # include "../mlx/mlx.h"
+typedef struct				s_save
+{
+	int						height;
+	int						width;
+	int						pad;
+	unsigned char			*file_header;
+	unsigned char			*img_header;
+	int						fd;
+}							t_save;
 
+typedef	struct				s_img
+{
+	void					*img_ptr;
+	int						*img_data;
+	int						bpp;
+	int						size_line;
+	int						endian;
+	int						width;
+	int						height;
+}							t_img;
+
+typedef	struct				s_tex
+{
+	void					*tex_ptr;
+	int						*tex_data;
+	int						bpp;
+	int						size_line;
+	int						endian;
+	int						width;
+	int						height;
+	char					*type;
+	int						sprite_x;
+	int						sprite_y;
+}							t_tex;
+
+typedef	struct				s_img
+{
+	void					*img_ptr;
+	int						*img_data;
+	int						bpp;
+	int						size_line;
+	int						endian;
+	int						width;
+	int						height;
+}							t_img;
+
+typedef struct				s_sprite_data
+{
+	double					sp_dist;
+	double					spcamx;
+	double					spcamy;
+	double					transx;
+	double					transy;
+	int						spritescreenx;
+	int						sprite_height;
+	int						drawstart_y;
+	int						drawend_y;
+	int						sprite_width;
+	int						drawstart_x;
+	int						drawend_x;
+	int						stripe;
+	int						sp_x;
+	int						sp_y;
+}							t_sprite_data;
+
+typedef struct				s_move
+{
+	int						up;
+	int						down;
+	int						left;
+	int						right;
+	int						strafl;
+	int						strafr;
+	int						lean_for;
+	int						lean_back;
+	int						jump_crouch;
+	int						collision;
+}							t_move;
+
+typedef struct				s_ray
+{
+	double					planex;
+	double					planey;
+	double					stepx;
+	double					stepy;
+	double					dirx;
+	double					diry;
+	int						tex_x;
+	int						tex_y;
+	double					rposx;
+	double					rposy;
+	double					rdirx;
+	double					rdiry;
+	double					rdisdx;
+	double					rdisdy;
+	double					rdistx;
+	double					rdisty;
+	int						rmapx;
+	int						rmapy;
+	int						wall;
+	int						wstart;
+	int						wend;
+	double					camera;
+	int						hit;
+	double					rh;
+	double					step_tex;
+	double					tex_pos;
+	double					dist;
+	double					speed;
+	double					*zbuffer;
+	int						*sp_order;
+	double					*sp_distance;\
+	int						sprite;
+	int						sprite_x;
+	int						sprite_y;
+	double					sprite_dist;
+	double					spstart;
+	double					spend;
+	int						ennemy;
+	int						door;
+}							t_ray;
 
 typedef	struct				s_env
 {
 	void					*mlx_ptr;
 	void					*win_ptr;
-	t_arg					arg;
+	t_conf					conf;
 	char					**map;
 	int						map_height;
 	int						map_width;
@@ -48,7 +168,7 @@ typedef	struct				s_env
 	t_sprite				*sprite_tex;
 	int						sprite_count;
 	t_sprite				*sprite_tab;
-	t_sprite_data			sprite;	
+	t_sprite_data			sprite;
 }							t_env;
 
 
