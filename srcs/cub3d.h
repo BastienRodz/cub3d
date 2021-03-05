@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/04 19:09:15 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/05 11:03:54 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ typedef struct				s_ray
 	double					speed;
 	double					*zbuffer;
 	int						*sp_order;
-	double					*sp_distance;\
+	double					*sp_distance;
 	int						sprite;
 	int						sprite_x;
 	int						sprite_y;
@@ -177,8 +177,8 @@ typedef struct	s_conf
 
 	int				error;
 
-	t_map			m;
-	t_player		p;
+	t_map			*m;
+	t_player		*p;
 }				t_conf;
 
 
@@ -207,52 +207,52 @@ typedef	struct				s_env
 	t_tex					*tex_e;
 	t_tex					*tex_sprite;
 	t_tex					*tex_sprite1;
-	t_tex					*tex_door;
-	t_tex					*tex_bonus;
-	t_tex					*tex_ennemy;
-	t_tex					*tex_ennemy_1;
-	t_tex					*tex_ennemy_2;
-	t_tex					*tex_ennemy_3;
-	t_tex					*tex_ennemy_4;
-	t_tex					*tex_ennemy_5;
-	t_tex					*tex_ennemy_6;
-	t_tex					*tex_ennemy_7;
-	t_tex					*tex_ennemy_8;
-	t_tex					*tex_ennemy_9;
-	t_tex					*tex_ammo;
-	t_tex					*tex_treasure;
+	//t_tex					*tex_door;
+	//t_tex					*tex_bonus;
+	//t_tex					*tex_ennemy;
+	//t_tex					*tex_ennemy_1;
+	//t_tex					*tex_ennemy_2;
+	//t_tex					*tex_ennemy_3;
+	//t_tex					*tex_ennemy_4;
+	//t_tex					*tex_ennemy_5;
+	//t_tex					*tex_ennemy_6;
+	//t_tex					*tex_ennemy_7;
+	//t_tex					*tex_ennemy_8;
+	//t_tex					*tex_ennemy_9;
+	//t_tex					*tex_ammo;
+	//t_tex					*tex_treasure;
 	t_tex					*tex_floor;
-	t_img					*sound_icon;
-	t_img					*bullet;
-	t_img					*lives_icon;
-	t_img					*target;
-	t_img					*weapon_img;
-	int						weapon_shot;
+	//t_img					*sound_icon;
+	//t_img					*bullet;
+	//t_img					*lives_icon;
+	//t_img					*target;
+	//t_img					*weapon_img;
+	//int						weapon_shot;
 	int						save_flag;
 	int						sprite_width;
 	//t_weapon_list			weapon_list;
 	//t_weapon				*current_weapon;
-	int						weapon_id;
+	//int						weapon_id;
 	unsigned int			color;
-	double					lives;
+	//double					lives;
 	t_sprite				*sprite_tex;
-	int						sound;
-	int						minimap;
+	//int						sound;
+	//int						minimap;
 	int						sprite_count;
 	t_sprite				*sprite_tab;
 	t_sprite_data			sprite;
-	int						open_door;
-	int						shot_box_x;
-	int						shot_box_y;
-	int						shot_box_size;
-	int						ennemy_can_be_shot;
-	int						ennemy_be_shot_x;
-	int						ennemy_be_shot_y;
-	int						ennemy_count;
-	int						level;
-	int						treasure_caught;
-	int						count_ennemy_gif;
-	double					target_divider;
+	//int						open_door;
+	//int						shot_box_x;
+	//int						shot_box_y;
+	//int						shot_box_size;
+	//int						ennemy_can_be_shot;
+	//int						ennemy_be_shot_x;
+	//int						ennemy_be_shot_y;
+	//int						ennemy_count;
+	//int						level;
+	//int						treasure_caught;
+	//int						count_ennemy_gif;
+	//double					target_divider;
 }							t_env;
 
 /*
@@ -277,8 +277,5 @@ int		check_udrl(t_conf *conf, int y, int x);
 */
 int		init_tex(t_env *env);
 t_env	init_env(t_conf *conf);
-int		init_sprite(t_env *env);
-void	ft_order_sprite(t_env *env);
-int		add_sprite_two(t_env *env, int i);
 
 #endif

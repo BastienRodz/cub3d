@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 19:03:19 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/04 19:13:25 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/05 10:25:47 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ void		ft_wall_tex(t_env *env, char tex)
 
 	width = ft_get_tex_width(env, tex);
 	height = ft_get_tex_height(env, tex);
-	if (env->ray.door)
+	/*if (env->ray.door)
 	{
 		width = env->tex_door->width;
 		height = env->tex_door->height;
-	}
+	}*/
 	if (env->ray.wall == 0)
 		wallx = env->ray.rposy - env->ray.dist * env->ray.rdiry;
 	else

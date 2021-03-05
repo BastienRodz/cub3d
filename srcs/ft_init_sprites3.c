@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 16:53:01 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/04 16:54:20 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/05 10:58:28 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int			sprite_put_pixel(t_env *env, int i, int y)
 	if (env->color != 0x0000ff && env->color != 0x0003ff)
 	{
 		if (!env->img)
-			if ((env->img = ft_new_image(env, env->width, env->height)) == NULL)
+			if ((env->img = ft_new_img(env)) == NULL)
 			{
 				env->error = -1;
 				ft_exit(env);

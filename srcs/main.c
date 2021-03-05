@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:57:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/04 17:04:16 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/05 10:38:39 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int		ft_check_map(int fd, t_conf *conf, char *line)
 {
 
 	map_gnl(fd, line, conf);
-	conf->m.map = ft_split(conf->m.line, '*');
+	conf->m->map = ft_split(conf->m->line, '*');
 	if (!ft_check_walls(conf))
 		return (-1);
-	if (conf->p.pos_count != 1)
+	if (conf->p->pos_count != 1)
 		return (-1);
 	return (1);
 }
@@ -67,8 +67,8 @@ void	tmp_print_check(t_conf *conf)
 
 	i = 0;
 	printf("[MAP CHECK]\n\n");
-	while (conf->m.map[i])
-		printf("%s\n", conf->m.map[i++]);
+	while (conf->m->map[i])
+		printf("%s\n", conf->m->map[i++]);
 	printf("\n");
 	printf("[CONFIG CHECK]\n\n");
 	printf("RESOLUTION = %d %d\n", conf->screen_width, conf->screen_height);
@@ -84,9 +84,9 @@ void	tmp_print_check(t_conf *conf)
 	printf("C COLOR G = %d\n\n", conf->ceil.g);
 	printf("C COLOR B = %d\n\n", conf->ceil.b);
 	printf("PLAYER CHECK\n\n");
-	printf("POSITION = %c\n", conf->p.orient);
-	printf("x = %d\n", conf->p.x);
-	printf("y = %d\n", conf->p.y);
+	printf("POSITION = %c\n", conf->p->orient);
+	printf("x = %d\n", conf->p->x);
+	printf("y = %d\n", conf->p->y);
 }
 
 int		main(int ac, char **av)

@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 16:40:27 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/04 16:47:36 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/05 10:49:21 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		init_tex(t_env *env)
 	init_tex_wall_sprite(env);
 	if (env->error < 0)
 	{
-		print("ERROR IN INIT TEXTURES\n");
+		printf("ERROR IN INIT TEXTURES\n");
 		return (-1);
 	}
 	return (1);
