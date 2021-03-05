@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/04 17:05:40 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/04 19:09:15 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,6 +181,7 @@ typedef struct	s_conf
 	t_player		p;
 }				t_conf;
 
+
 typedef	struct				s_env
 {
 	void					*mlx_ptr;
@@ -200,15 +201,59 @@ typedef	struct				s_env
 	t_move					move;
 	t_ray					ray;
 	t_img					*img;
+	t_tex					*tex_s;
+	t_tex					*tex_n;
+	t_tex					*tex_w;
+	t_tex					*tex_e;
+	t_tex					*tex_sprite;
+	t_tex					*tex_sprite1;
+	t_tex					*tex_door;
+	t_tex					*tex_bonus;
+	t_tex					*tex_ennemy;
+	t_tex					*tex_ennemy_1;
+	t_tex					*tex_ennemy_2;
+	t_tex					*tex_ennemy_3;
+	t_tex					*tex_ennemy_4;
+	t_tex					*tex_ennemy_5;
+	t_tex					*tex_ennemy_6;
+	t_tex					*tex_ennemy_7;
+	t_tex					*tex_ennemy_8;
+	t_tex					*tex_ennemy_9;
+	t_tex					*tex_ammo;
+	t_tex					*tex_treasure;
+	t_tex					*tex_floor;
+	t_img					*sound_icon;
+	t_img					*bullet;
+	t_img					*lives_icon;
+	t_img					*target;
+	t_img					*weapon_img;
+	int						weapon_shot;
 	int						save_flag;
 	int						sprite_width;
+	//t_weapon_list			weapon_list;
+	//t_weapon				*current_weapon;
+	int						weapon_id;
 	unsigned int			color;
+	double					lives;
 	t_sprite				*sprite_tex;
+	int						sound;
+	int						minimap;
 	int						sprite_count;
 	t_sprite				*sprite_tab;
 	t_sprite_data			sprite;
+	int						open_door;
+	int						shot_box_x;
+	int						shot_box_y;
+	int						shot_box_size;
+	int						ennemy_can_be_shot;
+	int						ennemy_be_shot_x;
+	int						ennemy_be_shot_y;
+	int						ennemy_count;
+	int						level;
+	int						treasure_caught;
+	int						count_ennemy_gif;
+	double					target_divider;
 }							t_env;
-
 
 /*
 **	GET CONF & MAP IN STRUCT

@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 16:51:27 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/04 16:57:25 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/04 19:02:28 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int			sprite_count(t_env *env)
 		}
 		y++;
 	}
-	env->ennemy_count = ennemy;
+	//env->ennemy_count = ennemy;
 	return (result);
 }
 
