@@ -6,7 +6,7 @@
 #    By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/28 13:04:41 by barodrig          #+#    #+#              #
-#    Updated: 2021/03/04 17:06:58 by barodrig         ###   ########.fr        #
+#    Updated: 2021/03/05 18:11:37 by barodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,7 @@ SRCS = 	./srcs/main.c \
 		./srcs/ft_search_conf.c \
 		./srcs/ft_search_textures.c \
 		./srcs/ft_check_map.c \
-		./srcs/ft_init_env.c \
-		./srcs/ft_init_textures.c \
-		./srcs/ft_init_sprite.c \
-		./srcs/ft_init_sprites2.c \
-		./srcs/ft_init_sprites3.c \
+		./srcs/ft_search_map.c \
 		./gnl/get_next_line.c \
 		./gnl/get_next_line_utils.c \
 
@@ -30,6 +26,9 @@ FLAGS = -Wall -Wextra -Werror -g
 
 OBJS = $(SRCS:.c=.o)
 
+$(%.o): $(%.c)
+		@$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+
 all: libft mlx $(NAME)
 
 mlx :
@@ -38,11 +37,8 @@ mlx :
 libft:
 		@make -C libft/
 
-$(%.o): $(%.c)
-		@$(CC) -Imlx -o $@ -c $^
-
 $(NAME): $(OBJS)
-		@$(CC) $(FLAGS) -o $@ $^ -lmlx -framework OpenGL -framework AppKit -lm -Llibft -lft
+		@$(CC) $(FLAGS) -o $@ $^ -Lmlx -lmlx -framework OpenGL -framework AppKit -lm -Llibft -lft
 
 clean:
 		@rm -f $(OBJS)

@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:57:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/04 17:04:16 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/06 10:18:05 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		game_launch(t_conf *conf, int fd, int ac, char *buf)
 	if (!ft_check_map(fd, conf, buf))
 		return (-1);
 	tmp_print_check(conf);
-	env = init_env(conf);
+	//env = init_env(conf);
 	if (ac == 3)
 		env.save_flag = 1;
 	//events(env);
@@ -59,34 +59,6 @@ int		check_arguments(int ac, char **av)
 		return (-1);
 	}
 	return (1);
-}
-
-void	tmp_print_check(t_conf *conf)
-{
-	int	i;
-
-	i = 0;
-	printf("[MAP CHECK]\n\n");
-	while (conf->m.map[i])
-		printf("%s\n", conf->m.map[i++]);
-	printf("\n");
-	printf("[CONFIG CHECK]\n\n");
-	printf("RESOLUTION = %d %d\n", conf->screen_width, conf->screen_height);
-	printf("NO TEXTURE = %s\n", conf->NO_path);
-	printf("SO TEXTURE = %s\n", conf->SO_path);
-	printf("WE TEXTURE = %s\n", conf->WE_path);
-	printf("EA TEXTURE = %s\n", conf->EA_path);
-	printf("S TEXTURE = %s\n\n", conf->S_path);
-	printf("F COLOR R = %d\n\n", conf->floor.r);
-	printf("F COLOR G = %d\n\n", conf->floor.g);
-	printf("F COLOR B = %d\n\n", conf->floor.b);
-	printf("C COLOR R = %d\n\n", conf->ceil.r);
-	printf("C COLOR G = %d\n\n", conf->ceil.g);
-	printf("C COLOR B = %d\n\n", conf->ceil.b);
-	printf("PLAYER CHECK\n\n");
-	printf("POSITION = %c\n", conf->p.orient);
-	printf("x = %d\n", conf->p.x);
-	printf("y = %d\n", conf->p.y);
 }
 
 int		main(int ac, char **av)
