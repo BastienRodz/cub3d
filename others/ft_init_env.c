@@ -6,7 +6,11 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 16:30:25 by barodrig          #+#    #+#             */
+<<<<<<< HEAD:others/ft_init_env.c
 /*   Updated: 2021/03/05 18:25:39 by barodrig         ###   ########.fr       */
+=======
+/*   Updated: 2021/03/05 11:05:01 by barodrig         ###   ########.fr       */
+>>>>>>> 038e851cb422072270fa11449bf2509d160b7f11:srcs/ft_init_env.c
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +69,7 @@ void		get_conf(t_env *env, t_conf conf, int y, int x)
 	t_map	tmp;
 
 	tmp = conf.m;
+<<<<<<< HEAD:others/ft_init_env.c
 	x = 0;
 	while (tmp.map[x])
 	{
@@ -85,6 +90,27 @@ void		get_conf(t_env *env, t_conf conf, int y, int x)
 		}
 		env->map_width = x;
 		x++;
+=======
+	while (tmp)
+	{
+		x = 0;
+		while (tmp->map[x])
+		{
+			if (ft_strchr("NSWE", tmp->map[x][y]))
+			{
+				env->orientation = tmp->map[x][y];
+				env->player_x = x++;
+				env->player_y = y++;
+			}
+			if (ft_strchr("2", tmp->map[x][y]))
+				env->sprite_count++;
+			//if (tmp->line[x] == 'O')
+			//	env->ennemy_count++;
+			x++;
+		}
+		env->map_width = x;
+		y++;
+>>>>>>> 038e851cb422072270fa11449bf2509d160b7f11:srcs/ft_init_env.c
 	}
 	env->map_height = y - 1;
 }
@@ -110,7 +136,11 @@ t_env		init_env(t_conf *conf)
 	init_env_2(&env, *conf);
 	init_env_orientation(&env);
 	init_tex(&env);
+<<<<<<< HEAD:others/ft_init_env.c
 	while (conf->m.map[0][i])
+=======
+	while (conf->m->map[0][i])
+>>>>>>> 038e851cb422072270fa11449bf2509d160b7f11:srcs/ft_init_env.c
 		i++;
 	//env.map_height = i;
 	//if ((env.error = init_raybuffer(&env)) != 1)
