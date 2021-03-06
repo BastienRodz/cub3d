@@ -6,11 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2021/03/06 10:18:13 by barodrig         ###   ########.fr       */
-=======
-/*   Updated: 2021/03/05 11:03:54 by barodrig         ###   ########.fr       */
->>>>>>> 038e851cb422072270fa11449bf2509d160b7f11
+/*   Updated: 2021/03/06 10:31:03 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +20,6 @@
 # include <fcntl.h>
 # include "../gnl/get_next_line.h"
 # include "../libft/libft.h"
-# include "../mlx/mlx.h"
 typedef struct				s_save
 {
 	int						height;
@@ -182,8 +177,8 @@ typedef struct	s_conf
 	int				x_max;
 	int				error;
 
-	t_map			*m;
-	t_player		*p;
+	t_map			m;
+	t_player		p;
 }				t_conf;
 
 
@@ -280,12 +275,7 @@ int		check_udrl(t_conf *conf, int y, int x);
 /*
 **	TEST
 */
-<<<<<<< HEAD
 //int		init_tex(t_env *env);
 //t_env		init_env(t_conf *conf);
-=======
-int		init_tex(t_env *env);
-t_env	init_env(t_conf *conf);
->>>>>>> 038e851cb422072270fa11449bf2509d160b7f11
 
 #endif
