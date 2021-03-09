@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:57:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/06 10:31:49 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/09 13:33:11 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ int		game_launch(t_conf *conf, int fd, int ac, char *buf)
 	if (!ft_check_map(fd, conf, buf))
 		return (-1);
 	tmp_print_check(conf);
-	//env = init_env(conf);
 	if (ac == 3)
 		env.save_flag = 1;
-	//events(env);
 	return (1);
 }
 
