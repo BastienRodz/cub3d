@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/06 10:31:03 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/10 14:11:40 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <fcntl.h>
 # include "../gnl/get_next_line.h"
 # include "../libft/libft.h"
+# include "../mlx/mlx.h"
+
 typedef struct				s_save
 {
 	int						height;
@@ -148,8 +150,8 @@ typedef struct	s_rgb
 
 typedef	struct	s_player
 {
-	int			x;
-	int			y;
+	double			x;
+	double			y;
 	char		orient;
 	int			pos_count;
 }				t_player;
@@ -175,24 +177,33 @@ typedef struct	s_conf
 	t_rgb			ceil;
 
 	int				x_max;
+	int				y_max;
+	int				ratio_x;
+	int				ratio_y;
 	int				error;
 
 	t_map			m;
 	t_player		p;
 }				t_conf;
 
+typedef struct  s_data {
+  void        *img;
+  char        *addr;
+  int         bits_per_pixel;
+  int         line_length;
+  int         endian;
+}               t_data;
 
 typedef	struct				s_env
 {
 	void					*mlx_ptr;
 	void					*win_ptr;
+	t_data					data;
 	t_conf					conf;
 	char					**map;
 	int						map_height;
 	int						map_width;
-	double					player_x;
-	double					player_y;
-	char					orientation;
+	t_player				p;
 	int						height;
 	int						width;
 	unsigned int			floor;
@@ -207,52 +218,14 @@ typedef	struct				s_env
 	t_tex					*tex_e;
 	t_tex					*tex_sprite;
 	t_tex					*tex_sprite1;
-	//t_tex					*tex_door;
-	//t_tex					*tex_bonus;
-	//t_tex					*tex_ennemy;
-	//t_tex					*tex_ennemy_1;
-	//t_tex					*tex_ennemy_2;
-	//t_tex					*tex_ennemy_3;
-	//t_tex					*tex_ennemy_4;
-	//t_tex					*tex_ennemy_5;
-	//t_tex					*tex_ennemy_6;
-	//t_tex					*tex_ennemy_7;
-	//t_tex					*tex_ennemy_8;
-	//t_tex					*tex_ennemy_9;
-	//t_tex					*tex_ammo;
-	//t_tex					*tex_treasure;
 	t_tex					*tex_floor;
-	//t_img					*sound_icon;
-	//t_img					*bullet;
-	//t_img					*lives_icon;
-	//t_img					*target;
-	//t_img					*weapon_img;
-	//int						weapon_shot;
 	int						save_flag;
 	int						sprite_width;
-	//t_weapon_list			weapon_list;
-	//t_weapon				*current_weapon;
-	//int						weapon_id;
 	unsigned int			color;
-	//double					lives;
 	t_sprite				*sprite_tex;
-	//int						sound;
-	//int						minimap;
 	int						sprite_count;
 	t_sprite				*sprite_tab;
 	t_sprite_data			sprite;
-	//int						open_door;
-	//int						shot_box_x;
-	//int						shot_box_y;
-	//int						shot_box_size;
-	//int						ennemy_can_be_shot;
-	//int						ennemy_be_shot_x;
-	//int						ennemy_be_shot_y;
-	//int						ennemy_count;
-	//int						level;
-	//int						treasure_caught;
-	//int						count_ennemy_gif;
-	//double					target_divider;
 }							t_env;
 
 /*
@@ -264,6 +237,7 @@ int				map_checker(t_map *map, int pos, int i);
 int				is_map_1st_line(char *line);
 int				map_gnl(int fd, char *line, t_conf *conf);
 void			ft_get_player(t_conf *conf, int x, int y);
+void			ft_get_max_y_max_x(t_conf *conf, int x, int y);
 
 /*
 **	CHECK_MAP

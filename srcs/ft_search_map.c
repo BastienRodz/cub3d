@@ -6,11 +6,29 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 20:00:33 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/06 10:15:59 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/10 15:23:34 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	ft_get_max_y_max_x(t_conf *conf, int x, int y)
+{
+	while (conf->m.map[y])
+		conf->y_max = y++;
+	y = 0;
+	conf->x_max = 0;
+	while (conf->m.map[y])
+	{
+		if (conf->x_max < ft_strlen(conf->m.map[y]))
+		{
+			conf->x_max = ft_strlen(conf->m.map[y]);
+		}
+		y++;
+	}
+	printf("Y_MAX = %d\n", conf->y_max);
+	printf("X_MAX = %d\n", conf->x_max);
+}
 
 void	ft_get_player(t_conf *conf, int x, int y)
 {

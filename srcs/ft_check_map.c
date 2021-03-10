@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 18:17:44 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/06 10:31:32 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/10 14:16:09 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,8 @@ void	tmp_print_check(t_conf *conf)
 	printf("C COLOR R = %d\n\n", conf->ceil.b);
 	printf("PLAYER CHECK\n\n");
 	printf("POSITION = %c\n", conf->p.orient);
-	printf("x = %d\n", conf->p.x);
-	printf("y = %d\n", conf->p.y);
+	printf("x = %f\n", conf->p.x);
+	printf("y = %f\n", conf->p.y);
 }
 
 char	*space_to_join(t_conf *conf, char *map_y, int len)
