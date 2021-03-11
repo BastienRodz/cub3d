@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 11:11:23 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/11 11:14:13 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/11 13:56:34 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,14 @@ int		is_map_1st_line(char *line)
 	if (ft_strchr(line, '1'))
 		return (1);
 	return (0);
+}
+
+int			get_color(t_rgb color)
+{
+	int		output;
+
+	output = 256 * 256 * color.r + 256 * color.g + color.b;
+	return (output);
 }
 
 void	tmp_print_check(t_conf *conf)

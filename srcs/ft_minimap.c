@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 11:07:24 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/11 11:10:04 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/11 11:42:17 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int		create_game(t_env *env)
 	env->data.addr = mlx_get_data_addr(env->data.img, &env->data.bits_per_pixel,
 					&env->data.line_length, &env->data.endian);
 	ft_minimap(&env->conf, env);
-	//keyhook(c);
-	//player_movement(c);
+	ft_keyhook(env);
+	player_movement(&env->conf);
 	return (1);
 }
