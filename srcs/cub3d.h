@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/10 14:11:40 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/11 11:13:56 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,10 +176,12 @@ typedef struct	s_conf
 	t_rgb			floor;
 	t_rgb			ceil;
 
+	int				x;
+	int				y;
 	int				x_max;
 	int				y_max;
-	int				ratio_x;
-	int				ratio_y;
+	float			ratio_x;
+	float			ratio_y;
 	int				error;
 
 	t_map			m;
@@ -234,22 +236,38 @@ typedef	struct				s_env
 int				search_conf(t_conf *conf, char *buf);
 int				search_textures_path(t_conf *conf, char *buf);
 int				map_checker(t_map *map, int pos, int i);
-int				is_map_1st_line(char *line);
 int				map_gnl(int fd, char *line, t_conf *conf);
-void			ft_get_player(t_conf *conf, int x, int y);
 void			ft_get_max_y_max_x(t_conf *conf, int x, int y);
+void			adapt_to_greatest(t_conf *conf);
+
+/*
+** MINIMAP
+*/
+int				create_game(t_env *env);
+
+/*
+** MLX UTILS
+*/
+int				put_right_color(char c);
+void 			my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 /*
 **	CHECK_MAP
 */
-void	tmp_print_check(t_conf *conf);
-int		ft_check_walls(t_conf *conf);
-int		check_udrl(t_conf *conf, int y, int x);
+int				ft_check_walls(t_conf *conf);
+int				check_udrl(t_conf *conf, int y, int x);
+
+/*
+** CHECK MAP UTILS
+*/
+void			ft_get_player(t_conf *conf, int x, int y);
+int				is_in_set(char c, char *set);
+int				is_map_1st_line(char *line);
+void			tmp_print_check(t_conf *conf);
 
 /*
 **	TEST
 */
-//int		init_tex(t_env *env);
-//t_env		init_env(t_conf *conf);
+
 
 #endif

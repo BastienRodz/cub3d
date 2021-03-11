@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 20:00:33 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/10 15:23:34 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/11 11:11:41 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_get_max_y_max_x(t_conf *conf, int x, int y)
 {
 	while (conf->m.map[y])
 		conf->y_max = y++;
+	conf->y_max++;
 	y = 0;
 	conf->x_max = 0;
 	while (conf->m.map[y])
@@ -26,17 +27,44 @@ void	ft_get_max_y_max_x(t_conf *conf, int x, int y)
 		}
 		y++;
 	}
-	printf("Y_MAX = %d\n", conf->y_max);
-	printf("X_MAX = %d\n", conf->x_max);
+	conf->ratio_x = (float)conf->screen_width / (float)conf->x_max;
+	conf->ratio_y = (float)conf->screen_height / (float)conf->y_max;
 }
 
-void	ft_get_player(t_conf *conf, int x, int y)
+char	*space_to_join(t_conf *conf, char *map_y, int len)
 {
-	conf->p.pos_count++;
-	conf->p.x = x;
-	conf->p.y = y;
-	conf->p.orient = conf->m.map[y][x];
-	conf->m.map[y][x] = '0';
+	char	*space;
+	int		i;
+	int		size;
+
+	i = 0;
+	size = conf->x_max - len;
+	space = (char *)malloc(sizeof(char) * size + 1);
+	if (!space)
+		return (NULL);
+	while (i < size)
+		space[i++] = ' ';
+	space[i] = '\0';
+	return (space);
+}
+
+void	adapt_to_greatest(t_conf *conf)
+{
+	int		y;
+	int		len;
+	char	*space;
+
+	y = 0;
+	while (conf->m.map[y])
+	{
+		len = (int)ft_strlen(conf->m.map[y]);
+		if (len < conf->x_max)
+		{
+			space = space_to_join(conf, conf->m.map[y], len);
+			conf->m.map[y] = ft_strjoin(conf->m.map[y], space, 2);
+		}
+		y++;
+	}
 }
 
 void	get_map(char *line, t_conf *conf)

@@ -6,7 +6,7 @@
 #    By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/28 13:04:41 by barodrig          #+#    #+#              #
-#    Updated: 2021/03/06 10:28:36 by barodrig         ###   ########.fr        #
+#    Updated: 2021/03/11 11:14:37 by barodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,10 @@ SRCS = 	./srcs/main.c \
 		./srcs/ft_search_conf.c \
 		./srcs/ft_search_textures.c \
 		./srcs/ft_check_map.c \
+		./srcs/ft_map_utils.c \
 		./srcs/ft_search_map.c \
+		./srcs/ft_mlx_utils.c \
+		./srcs/ft_minimap.c \
 		./gnl/get_next_line.c \
 		./gnl/get_next_line_utils.c \
 
