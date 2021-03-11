@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 11:34:11 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/11 14:16:05 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/11 15:09:40 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,11 @@ void	is_collision(t_conf *conf)
 		conf->p.x -= DIST;
 }
 
-void	player_movement(t_conf *conf)
+void	player_movement(t_conf *conf, t_env *env)
 {
-	ft_free_img(env, env->data);
 	if (conf->p.up == 1)
 		conf->p.y -= DIST;
-	if (conf->p.down == -1)
+	if (conf->p.down == 1)
 		conf->p.y += DIST;
 	if (conf->p.left == 1)
 		conf->p.x -= DIST;

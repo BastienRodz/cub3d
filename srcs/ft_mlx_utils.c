@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 11:05:10 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/11 14:15:07 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/11 14:28:30 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ int		put_right_color(char c)
 		return (0x001A1BFF);
 }
 
+int			init_raybuffer(t_env *env)
+{
+	if (!(env->ray.zbuffer = malloc(sizeof(double)
+			* (env->conf.screen_height + 1))))
+		return (-1);
+	return (1);
+}
+
 /*void	ft_free_tex(t_env *env, t_tex *tex)
 {
 	if (tex)
@@ -44,8 +52,8 @@ void	ft_free_img(t_env *env, t_data *data)
 {
 	if (data)
 	{
-		mlx_destroy_image(env->mlx_ptr, env->data.img_ptr);
-		free(env->data);
+		mlx_destroy_image(env->mlx_ptr, env->data.img);
+		free(data);
 		data = NULL;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/11 14:14:12 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/11 15:09:01 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,7 +194,6 @@ typedef	struct				s_env
 	unsigned int	ceil;
 	int				error;
 	t_ray			ray;
-	t_img			*img;
 	t_tex			*tex_s;
 	t_tex			*tex_n;
 	t_tex			*tex_w;
@@ -233,6 +232,8 @@ int					create_game(t_env *env);
 */
 int					put_right_color(char c);
 void 				my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int					init_raybuffer(t_env *env);
+void				ft_free_img(t_env *env, t_data *data);
 
 /*
 **	CHECK_MAP
@@ -250,10 +251,10 @@ void				tmp_print_check(t_conf *conf);
 int					get_color(t_rgb color);
 
 /*
-**	TEST
+**	EVENTS
 */
 int					ft_keyhook(t_env *env);
-void				player_movement(t_conf *conf);
+void				player_movement(t_conf *conf, t_env *env);
 void				ft_exit(t_conf *conf);
 
 # define W 13

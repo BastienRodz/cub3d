@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 11:07:24 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/11 11:42:17 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/11 15:08:45 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ int		create_game(t_env *env)
 					&env->data.line_length, &env->data.endian);
 	ft_minimap(&env->conf, env);
 	ft_keyhook(env);
-	player_movement(&env->conf);
+	player_movement(&env->conf, env);
 	return (1);
 }

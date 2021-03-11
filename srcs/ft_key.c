@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 11:22:58 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/11 14:11:47 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/11 14:43:04 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,26 @@ int		key_press(int keycode, t_env *env)
 	return (1);
 }
 
-int	key_release(int keycode, t_conf *conf)
+int	key_release(int keycode, t_env *env)
 {
 	if (keycode == UP_ARROW || keycode == W)
-		conf->p.up = 0;
+		env->conf.p.up = 0;
 	if (keycode == DOWN_ARROW || keycode == S)
-		conf->p.down = 0;
+		env->conf.p.down = 0;
 	if (keycode == LEFT_ARROW)
 		env->conf.p.strafl = 0;
 	if (keycode == RIGHT_ARROW)
 		env->conf.p.strafr = 0;
 	if (keycode == A)
-		conf->p.left = 0;
+		env->conf.p.left = 0;
 	if (keycode == D)
-		conf->p.right = 0;
+		env->conf.p.right = 0;
 	return (1);
 }
 
 int	ft_keyhook(t_env *env)
 {
 	mlx_hook(env->win_ptr, 2, 1L << 0, key_press, env);
-	mlx_hook(env->win_ptr, 3, 1L << 1, key_release, &env->conf);
+	mlx_hook(env->win_ptr, 3, 1L << 1, key_release, env);
 	return (1);
 }

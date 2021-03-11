@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:57:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/11 14:06:17 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/11 14:49:24 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,29 +47,30 @@ void	ft_init_ray_orient(t_env *env)
 	}
 	if (env->conf.p.orient == 'W')
 	{
-		env.ray.dirx = -0.99;
-		env.ray.plany = 0.80;
+		env->ray.dirx = -0.99;
+		env->ray.planey = 0.80;
 	}
 }
 
 void	init_env(t_conf *conf, t_env *env)
 {
-	env->ray.speed = 0.1;
+	//env->ray.speed = 0.1;
 	env->conf = *conf;
-	env->floor = get_color(conf->floor);
-	env->ceil = get_color(conf->ceil);
+	//env->floor = get_color(conf->floor);
+	//env->ceil = get_color(conf->ceil);
 	env->mlx_ptr = mlx_init();
-	env->conf.p.x += 0.5;
-	env->conf.p.y += 0.5;
-	env->lives = 3;
-	env->minimap = 1;
-	ft_init_ray_orient(&env);
-	//env->win_ptr = mlx_new_window(env->mlx_ptr, conf->screen_width, conf.screen_height, "Cub3D");
-	//env->data.img = mlx_new_image(env->mlx_ptr, conf->screen_width, conf->screen_height);
-	//env->data.addr = mlx_get_data_addr(env->data.img, &env->data.bits_per_pixel, &env->data.line_length,
-    //                             &env->data.endian);
-	//mlx_loop_hook(env->mlx_ptr, create_game, env);
-	//mlx_loop(env->mlx_ptr);
+	//env->conf.p.x += 0.5;
+	//env->conf.p.y += 0.5;
+	//env->lives = 3;
+	//env->minimap = 1;
+	//ft_init_ray_orient(env);
+	//init_raybuffer(env);
+	env->win_ptr = mlx_new_window(env->mlx_ptr, conf->screen_width, conf->screen_height, "Cub3D");
+	env->data.img = mlx_new_image(env->mlx_ptr, conf->screen_width, conf->screen_height);
+	env->data.addr = mlx_get_data_addr(env->data.img, &env->data.bits_per_pixel, &env->data.line_length,
+                                 &env->data.endian);
+	mlx_loop_hook(env->mlx_ptr, create_game, env);
+	mlx_loop(env->mlx_ptr);
 }
 
 int		game_launch(t_conf *conf, int fd, int ac, char *buf)
