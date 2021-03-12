@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 11:07:24 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/12 12:26:05 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/12 16:28:09 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@ void	ft_create_maprays(t_env *env, double x, double y)
 {
 	float	angle;
 	int		i;
-	int		radius;
+	float	fov;
 
-	i = 10;
-	radius = 100;
+	fov = -0.785;
 	env->conf.p.angle += env->conf.p.dir * (2 * (3.14 / 180));
-	while (i <= radius)
+
+	while (fov <= 0.785)
 	{
-		my_mlx_pixel_put(&env->data, (x + cos(env->conf.p.angle - 0.785) * i),
-				(y + sin(env->conf.p.angle - 0.785) * i), 0x0018AD3E);
-		i++;
-	}
-	i = 10;
-	while (i <= radius)
-	{
-		my_mlx_pixel_put(&env->data, (x + cos(env->conf.p.angle + 0.785) * i),
-				(y + sin(env->conf.p.angle + 0.785) * i), 0x0018AD3E);
-		i++;
+		i = env->conf.p.radius;
+		while (!is_in_set(env->conf.m.map[(int)floorf((y + sin(env->conf.p.angle - fov) * i)
+		/ env->conf.ratio_y)][(int)floorf((x + cos(env->conf.p.angle - fov) * i)
+			/ env->conf.ratio_x)], "12"))
+		{
+			my_mlx_pixel_put(&env->data, (x + cos(env->conf.p.angle - fov) * i),
+					(y + sin(env->conf.p.angle - fov) * i), 0x0018AD3E);
+			i++;
+		}
+		fov += 0.001;
 	}
 }
 
@@ -40,12 +40,12 @@ void	ft_create_player(t_env *env, double x, double y)
 {
 	float	angle;
 	float	i;
-	int		radius;
+
 
 	angle = 0;
 	i = 0;
-	radius = 10;
-	while (i <= radius)
+	env->conf.p.radius = 5000 / env->conf.screen_width;
+	while (i <= env->conf.p.radius)
 	{
 		angle = 0;
 		while (angle <= 6.28)

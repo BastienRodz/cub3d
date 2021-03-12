@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:57:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/11 14:49:24 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/12 15:57:51 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_check_map(int fd, t_conf *conf, char *line)
 		return (-1);
 	ft_get_max_y_max_x(conf, 0, 0);
 	adapt_to_greatest(conf);
-	tmp_print_check(conf);
+	//tmp_print_check(conf);
 	return (1);
 }
 
