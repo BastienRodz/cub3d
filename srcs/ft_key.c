@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 11:22:58 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/11 14:43:04 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/12 12:27:02 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int		key_press(int keycode, t_env *env)
 	if (keycode == DOWN_ARROW || keycode == S)
 		env->conf.p.down = 1;
 	if (keycode == LEFT_ARROW)
-		env->conf.p.strafl = 1;
+		env->conf.p.dir = -1;
 	if (keycode == RIGHT_ARROW)
-		env->conf.p.strafr = 1;
+		env->conf.p.dir = 1;
 	if (keycode == A)
 		env->conf.p.left = 1;
 	if (keycode == D)
@@ -44,9 +44,9 @@ int	key_release(int keycode, t_env *env)
 	if (keycode == DOWN_ARROW || keycode == S)
 		env->conf.p.down = 0;
 	if (keycode == LEFT_ARROW)
-		env->conf.p.strafl = 0;
+		env->conf.p.dir = 0;
 	if (keycode == RIGHT_ARROW)
-		env->conf.p.strafr = 0;
+		env->conf.p.dir = 0;
 	if (keycode == A)
 		env->conf.p.left = 0;
 	if (keycode == D)

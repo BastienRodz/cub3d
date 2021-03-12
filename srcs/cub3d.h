@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/11 15:09:01 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/12 12:21:09 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,8 +133,8 @@ typedef	struct	s_player
 	int				down;
 	int				left;
 	int				right;
-	int				strafl;
-	int				strafr;
+	float			angle;
+	float			dir;
 	int				collision;
 }				t_player;
 

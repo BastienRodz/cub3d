@@ -6,11 +6,58 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 11:07:24 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/11 15:08:45 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/12 12:26:05 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	ft_create_maprays(t_env *env, double x, double y)
+{
+	float	angle;
+	int		i;
+	int		radius;
+
+	i = 10;
+	radius = 100;
+	env->conf.p.angle += env->conf.p.dir * (2 * (3.14 / 180));
+	while (i <= radius)
+	{
+		my_mlx_pixel_put(&env->data, (x + cos(env->conf.p.angle - 0.785) * i),
+				(y + sin(env->conf.p.angle - 0.785) * i), 0x0018AD3E);
+		i++;
+	}
+	i = 10;
+	while (i <= radius)
+	{
+		my_mlx_pixel_put(&env->data, (x + cos(env->conf.p.angle + 0.785) * i),
+				(y + sin(env->conf.p.angle + 0.785) * i), 0x0018AD3E);
+		i++;
+	}
+}
+
+void	ft_create_player(t_env *env, double x, double y)
+{
+	float	angle;
+	float	i;
+	int		radius;
+
+	angle = 0;
+	i = 0;
+	radius = 10;
+	while (i <= radius)
+	{
+		angle = 0;
+		while (angle <= 6.28)
+		{
+			my_mlx_pixel_put(&env->data, (x + cos(angle) * i),
+				(y + sin(angle) * i), 0x00000000);
+			angle += 0.01;
+		}
+		i += 1;
+	}
+	ft_create_maprays(env, x, y);
+}
 
 void	ft_print_map(t_env *env, t_conf *conf, int color, int p)
 {
@@ -25,12 +72,8 @@ void	ft_print_map(t_env *env, t_conf *conf, int color, int p)
 	abs = x + conf->ratio_x;
 	ord = y + conf->ratio_y;
 	if (p == 1)
-	{
-		x = conf->p.x * conf->ratio_x;
-		abs = x + conf->ratio_x / 2;
-		y = conf->p.y * conf->ratio_y;
-		ord = y + conf->ratio_y / 2;
-	}
+		ft_create_player(env, (conf->p.x * conf->ratio_x),
+			(conf->p.y * conf->ratio_y));
 	while (y < ord && y < conf->screen_height)
 	{
 		tmp_x = x;
@@ -54,11 +97,11 @@ void	ft_minimap(t_conf *conf, t_env *env)
 				ft_print_map(env, conf, put_right_color('0'), 0);
 			if (conf->m.map[conf->y][conf->x] == '2')
 				ft_print_map(env, conf, put_right_color('2'), 0);
-			ft_print_map(env, conf, 0x00F08F84, 1);
 			conf->x++;
 		}
 		conf->y++;
 	}
+	ft_print_map(env, conf, put_right_color('1'), 1);
 	mlx_put_image_to_window(env->mlx_ptr, env->win_ptr, env->data.img, 0, 0);
 	mlx_destroy_image(env->mlx_ptr, env->data.img);
 }

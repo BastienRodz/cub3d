@@ -6,7 +6,7 @@
 #    By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/28 13:04:41 by barodrig          #+#    #+#              #
-#    Updated: 2021/03/11 11:43:20 by barodrig         ###   ########.fr        #
+#    Updated: 2021/03/12 10:20:35 by barodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,10 @@ $(%.o): $(%.c)
 all: libft mlx $(NAME)
 
 mlx :
-		@make -C mlx/
+		make -C mlx/
 
 libft:
-		@make -C libft/
+		make -C libft/
 
 $(NAME): $(OBJS)
 		@$(CC) $(FLAGS) -o $@ $^ -Lmlx -lmlx -framework OpenGL -framework AppKit -lm -Llibft -lft
