@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 11:07:24 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/15 13:56:38 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/15 16:04:06 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ void	ft_create_maprays(t_env *env, double x, double y)
 	float	fov;
 
 	fov = -0.785;
-	env->conf.p.angle += env->conf.p.dir * (2 * (3.14 / 180));
+	env->conf.p.angle += env->conf.p.dir * env->conf.p.rotspeed;
 
 	while (fov <= 0.785)
 	{
 		i = env->conf.p.radius;
-		while (!is_in_set(env->conf.m.map[(int)floorf((y + sin(env->conf.p.angle - fov) * i)
-		/ env->conf.ratio_y)][(int)floorf((x + cos(env->conf.p.angle - fov) * i)
-			/ env->conf.ratio_x)], "12"))
+		while (!is_in_set(env->conf.m.map[(int)floorf((y + sin(env->conf.p.angle
+			- fov) * i) / env->conf.ratio_y)][(int)floorf((x +
+				cos(env->conf.p.angle - fov) * i) / env->conf.ratio_x)], "12"))
 		{
 			my_mlx_pixel_put(&env->data, (x + cos(env->conf.p.angle - fov) * i),
 					(y + sin(env->conf.p.angle - fov) * i), 0x0018AD3E);
@@ -40,7 +40,6 @@ void	ft_create_player(t_env *env, double x, double y)
 {
 	float	angle;
 	float	i;
-
 
 	angle = 0;
 	i = 0;

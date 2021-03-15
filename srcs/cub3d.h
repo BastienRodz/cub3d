@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/15 12:24:06 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/15 15:48:14 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,45 +74,7 @@ typedef	struct				s_sprite
 
 typedef struct				s_ray
 {
-	double			planex;
-	double			planey;
-	double			stepx;
-	double			stepy;
-	double			dirx;
-	double			diry;
-	int				tex_x;
-	int				tex_y;
-	double			rposx;
-	double			rposy;
-	double			rdirx;
-	double			rdiry;
-	double			rdisdx;
-	double			rdisdy;
-	double			rdistx;
-	double			rdisty;
-	int				rmapx;
-	int				rmapy;
-	int				wall;
-	int				wstart;
-	int				wend;
-	double			camera;
-	int				hit;
-	double			rh;
-	double			step_tex;
-	double			tex_pos;
-	double			dist;
-	double			speed;
-	double			*zbuffer;
-	int				*sp_order;
-	double			*sp_distance;
-	int				sprite;
-	int				sprite_x;
-	int				sprite_y;
-	double			sprite_dist;
-	double			spstart;
-	double			spend;
-	int				ennemy;
-	int				door;
+	float			angle;
 }					t_ray;
 
 typedef struct	s_rgb
@@ -127,6 +89,7 @@ typedef	struct	s_player
 {
 	double			x;
 	double			y;
+	float			fov;
 	int				radius;
 	char			orient;
 	int				pos_count;
@@ -137,7 +100,7 @@ typedef	struct	s_player
 	float			dir;
 	float			rotspeed;
 	float			movespeed;
-	int				collision;
+	float			movestep;
 }				t_player;
 
 typedef	struct	s_map

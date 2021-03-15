@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 11:11:23 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/15 13:59:17 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/15 16:05:11 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,9 @@ void		ft_construct_player(t_env *env)
 	env->conf.p.walkdir = 0;
 	//env->conf.p.angle = 3.1415 / 2;
 	env->conf.p.movespeed = 0.1;
-	env->conf.p.rotspeed = 2 * (3.1415 / 180);
+	env->conf.p.rotspeed = 8 * (3.14159 / 180);
+	env->conf.p.fov = 60 * (3.14159 / 180);
+	env->conf.p.movestep = env->conf.p.walkdir * env->conf.p.movespeed;
 	if (env->conf.p.orient == 'N')
 		env->conf.p.angle = 4.71239;
 	if (env->conf.p.orient == 'E')

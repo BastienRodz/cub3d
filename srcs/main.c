@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:57:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/15 11:28:17 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/15 15:51:06 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,6 @@ int		ft_check_map(int fd, t_conf *conf, char *line)
 	adapt_to_greatest(conf);
 	//tmp_print_check(conf);
 	return (1);
-}
-
-void	ft_init_ray_orient(t_env *env)
-{
-	if (env->conf.p.orient == 'N')
-	{
-		env->ray.diry = -0.99;
-		env->ray.planex = -0.80;
-	}
-	if (env->conf.p.orient == 'S')
-	{
-		env->ray.diry = 0.99;
-		env->ray.planex = 0.80;
-	}
-	if (env->conf.p.orient == 'E')
-	{
-		env->ray.dirx = 0.99;
-		env->ray.planey = -0.80;
-	}
-	if (env->conf.p.orient == 'W')
-	{
-		env->ray.dirx = -0.99;
-		env->ray.planey = 0.80;
-	}
 }
 
 void	init_env(t_conf *conf, t_env *env)
