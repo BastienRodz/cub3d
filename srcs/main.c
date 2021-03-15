@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 13:57:49 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/12 15:57:51 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/15 11:28:17 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	init_env(t_conf *conf, t_env *env)
 {
 	//env->ray.speed = 0.1;
 	env->conf = *conf;
+	ft_construct_player(env);
 	//env->floor = get_color(conf->floor);
 	//env->ceil = get_color(conf->ceil);
 	env->mlx_ptr = mlx_init();

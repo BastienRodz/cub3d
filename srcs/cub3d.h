@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/12 16:24:49 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/15 12:24:06 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,13 +130,11 @@ typedef	struct	s_player
 	int				radius;
 	char			orient;
 	int				pos_count;
-	int				up;
-	int				down;
-	int				left;
-	int				right;
+	float			sidewalk;
+	int				turndir;
+	int				walkdir;
 	float			angle;
 	float			dir;
-	float			rotangle;
 	float			rotspeed;
 	float			movespeed;
 	int				collision;
@@ -260,6 +258,7 @@ int					get_color(t_rgb color);
 int					ft_keyhook(t_env *env);
 void				player_movement(t_conf *conf, t_env *env);
 void				ft_exit(t_conf *conf);
+void				ft_construct_player(t_env *env);
 
 # define W 13
 # define A 0

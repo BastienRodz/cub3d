@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 11:11:23 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/11 13:56:34 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/15 13:59:17 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,23 @@ int			get_color(t_rgb color)
 
 	output = 256 * 256 * color.r + 256 * color.g + color.b;
 	return (output);
+}
+
+void		ft_construct_player(t_env *env)
+{
+	env->conf.p.turndir = 0;
+	env->conf.p.walkdir = 0;
+	//env->conf.p.angle = 3.1415 / 2;
+	env->conf.p.movespeed = 0.1;
+	env->conf.p.rotspeed = 2 * (3.1415 / 180);
+	if (env->conf.p.orient == 'N')
+		env->conf.p.angle = 4.71239;
+	if (env->conf.p.orient == 'E')
+		env->conf.p.angle = 0;
+	if (env->conf.p.orient == 'S')
+		env->conf.p.angle = 1.5708;
+	if (env->conf.p.orient == 'W')
+		env->conf.p.angle = 3.14159;
 }
 
 void	tmp_print_check(t_conf *conf)
