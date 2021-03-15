@@ -6,7 +6,7 @@
 /*   By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/15 14:00:05 by barodrig          #+#    #+#             */
-/*   Updated: 2021/03/15 15:48:14 by barodrig         ###   ########.fr       */
+/*   Updated: 2021/03/15 17:09:38 by barodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ typedef	struct				s_sprite
 typedef struct				s_ray
 {
 	float			angle;
+	long			xstep;
+	long			ystep;
 }					t_ray;
 
 typedef struct	s_rgb
@@ -222,6 +224,11 @@ int					ft_keyhook(t_env *env);
 void				player_movement(t_conf *conf, t_env *env);
 void				ft_exit(t_conf *conf);
 void				ft_construct_player(t_env *env);
+
+/*
+**	RAYS
+*/
+void				ft_create_maprays(t_env *env, double x, double y)
 
 # define W 13
 # define A 0

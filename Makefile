@@ -6,7 +6,7 @@
 #    By: barodrig <barodrig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/28 13:04:41 by barodrig          #+#    #+#              #
-#    Updated: 2021/03/12 10:20:35 by barodrig         ###   ########.fr        #
+#    Updated: 2021/03/15 17:10:01 by barodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS = 	./srcs/main.c \
 		./srcs/ft_key.c \
 		./srcs/ft_error.c \
 		./srcs/ft_movement.c \
+		./srcs/ft_ray.c \
 		./gnl/get_next_line.c \
 		./gnl/get_next_line_utils.c \
 
